@@ -1,12 +1,16 @@
 import React from 'react';
+import CitiesList from './CitiesList';
 import '../App.css';
 
 function citiesPage() {
   return (
     <div className="body">
-      <h1>Cities Page</h1>
-      <p>in construction.</p>
+      {/* header */}
+      <CitiesList />
+      {/* footer */}
+
     </div>
-  )}
+)}
 
 export default citiesPage;
+

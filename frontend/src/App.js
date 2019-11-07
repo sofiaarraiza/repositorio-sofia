@@ -10,13 +10,6 @@ import MYtinerary from './components/MYtinerary';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
-/*import Button from './components/Button.js';
-import Account from './components/Account.js';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import 'bootstrap/dist/css/bootstrap.min.css';*/
-
 function App() {
   return (
     <Router>
