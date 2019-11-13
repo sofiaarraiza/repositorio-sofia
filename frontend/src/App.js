@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import ArrowIcon from './media/circled-right.png';
-import HomeIcon from './media/home-icon.png';
 import Nav from './components/nav.js';
 import CitiesPage from './components/cities-page.js';
 import LogIn from './components/logIn.js';
@@ -14,7 +12,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/cities-page" component={CitiesPage} />
@@ -27,30 +24,22 @@ function App() {
   )}
 
 const Home = () => (
-  <div className="body">
-      <h3>Find your perfect trip, designed by insiders
-        who know and love their cities.
-      </h3>
-      <div>
-        <h2 className="texto-naranja">Start browsing</h2>
+  <div className="body home">
+      <Nav />
+      <div className="header">
+        <h1 className="title">MYtinerary</h1>
+        <p>Find your perfect trip,</p>
+        <p>designed by insiders</p>
+        <p>who know and love their cities.</p>
         <Link to='/cities-page'>
-        <a href="#"><img src={ArrowIcon} alt="Arrow Icon" className="icono-flecha"/></a></Link>
-      </div>
-      <div>
-        <h3>Want to build your own MYtinerary?</h3>
-        <Link to='/log-in'>
-          <a href="#" className="link-naranja link-izquierda">Log in</a>
+          <a href="#" className="button-cities">START BROWSING</a>
         </Link>
-        <Link to='/create-account'>
-          <a href="#" className="link-naranja link-derecha">Create Account</a>
-        </Link>
-        <div className="footer">
-        <Link to='/'>
-          <a href="#"><img src={HomeIcon} alt="Home Icon" className="icono-home"/></a>
-          </Link>
-        </div>
       </div>
+      <footer>
+        <p class="col copy">Copyright © 2019 - Desarrollado por Sofía Arraiza</p>
+      </footer>
   </div>
 )
 
 export default App;
+

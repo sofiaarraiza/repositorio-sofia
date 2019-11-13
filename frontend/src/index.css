@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: 'Mosk700';
+  src: local('Mosk'), url(./fonts/Mosk-Bold-700.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Mosk200';
+  src: local('Mosk'), url(./fonts/Mosk-Extra-Light-200.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Mosk400';
+  src: local('Mosk'), url(./fonts/Mosk-Normal-400.ttf) format('truetype');
+}
+

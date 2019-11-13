@@ -1,67 +1,110 @@
+/*TODAS*/
 .body {
+  width: 100%;
   padding: 0;
   margin: 0;
   align-items: center;
   text-align: center;
 }
 
-.imagen-superior {
-  width: 650px;
-  position: relative;
-  left: 30%;
+/*HOME*/
+.home {
+  background-image: url("./media/landing-page.jpg");
+  background-size: cover;
+  height: 900px;
 }
 
-.imagen-logo {
-  height: 100%;
-  width: 100%;
+.header {
+  display: inline-block;
+  position: absolute;
+  top: 25%;
+  left: 13%;
 }
 
-.icono-flecha {
-  width: 150px;
+.title {
+  color: #ff4945;
+  margin: 0px;
+  margin-bottom: 35px;
+  padding: 0px;
+  font-family: Mosk700;
+  font-weight: 700;
+  font-size: 120px;
 }
 
-.icono-home {
-  width: 80px;
-}
-
-.texto-naranja {
-  color: #ff2600;
-}
-
-.link-naranja {
-  text-decoration: none;
-  color: black;
-}
-
-.link-naranja:hover {
-  background-color: #ff2600; 
-}
-
-.link-izquierda {
+.header p {
+  font-size: 20px;
+  margin: 10px;
+  font-family: Mosk200;
   text-align: left;
-  position: relative;
-  right: 5%;
 }
 
-.link-derecha {
-  text-align: right;
-  position: relative;
-  left: 5%;
+.header a {
+  text-decoration: none;
 }
+
+.button-cities {
+  position: relative;
+  display: inline-block;
+  font-family: Mosk400;
+  font-weight: 600;
+  color: white;
+  background-color: #008eff;
+  border-radius: 30px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: -200px;
+}
+
+.button-cities:hover {
+  background-color: #ff4945;
+  
+}
+
+footer {
+  font-size: 12px;
+  position:fixed;
+  left: 20px;
+  bottom: 3px;
+}
+
+/*NAV*/
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10xh;
-  background-color: #ff2600;
-  color: white;
+  padding-top: 30px;
+  padding-left: 40px;
+  padding-right: 130px;
+  font-family: Mosk400;
 }
 
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+nav ul {
+  overflow: hidden;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #008eff;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 800;
+  float: left;
+}
+
+.menu {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  float: right;
+}
+
+nav a:hover {
+  color: #ff4945;  
+}
+
+/*CITIES PAGE*/
+.citiesPage-ul {
   list-style: none;
 }

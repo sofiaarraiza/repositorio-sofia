@@ -33,8 +33,8 @@ class CitiesList extends Component {
       }
 
       if(!this.state.isFetching){
-        const cityItems = this.state.cities.map((city)=> <li key={city._id}>{city.name + " " + city.country}</li>);
-        return <div> {cityItems} </div>
+        const cityItems = this.state.cities.map((city)=> <li key={city._id} className="citiesPage-list">{city.name + " " + city.country}</li>);
+        return <div><ul className="citiesPage-ul"> {cityItems} </ul></div>
         //<li key={todo.id}>
         //<AddCitiesList cities={cities} /> 
         //<div> {this.state.cities[0].name + " " + this.state.cities[0].country}</div>
