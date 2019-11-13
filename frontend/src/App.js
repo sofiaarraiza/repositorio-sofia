@@ -7,6 +7,11 @@ import CreateAccount from './components/createAccount';
 import MYtinerary from './components/MYtinerary';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+
+const store = createStore(reducer, /* preloadedState, */ devToolsEnhancer(
+  // Specify custom devTools options
+));
 
 function App() {
   return (
