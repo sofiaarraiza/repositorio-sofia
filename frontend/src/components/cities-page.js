@@ -15,4 +15,3 @@ function citiesPage() {
 )}
 
 export default citiesPage;
-

@@ -1,54 +1,97 @@
-import React, {Component} from 'react';
-const API = 'http://localhost:5000/cities';
-//import AddCitiesList from './AddCitiesList.js';
-//const DEFAULT_QUERY = 'redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCities } from '../actions/getCities';
 
 class CitiesList extends Component {
     constructor(props) {
-        super(props);
-
-        this.state = {
-            isFetching: true,
-            cities: null
-        };
+      super(props);
+      this.state = {
+        search: ''
+      };
     }
-
-    async componentDidMount() {
-        
-      fetch(API)
-        .then(response => response.json())
-        .then( data => this.setState( {cities: data, isFetching: false}))
-        .catch(err => {            console.log("error: " + err)        });
-        // const resppuesta = await info.json();
-        // this.setState({ cities: resppuesta });
-        // console.log(resppuesta);
-
-        //const cities = this.state.cities;
-
+  
+    updateSearch = e => {
+      this.setState({ search: e.target.value.substr(0, 20) })
     }
+  
+  componentDidMount(){
+    this.props.getCities();
+  }
 
-    render() {
-      if(this.state.isFetching){
-        return (<div> loading </div>)
+  render() {
+    const cities = Array.from(this.props.cities || []);
+    const cityItem = cities.map(city => (
+      <li key={city._id} className="citiesPage-list">
+        {city.name + " " + city.country}
+      </li>
+    ));
+    let filteredCities = this.props.cities.filter(
+      (city) => {
+        return city.name.indexOf(this.state.search) !== -1;
       }
-
-      if(!this.state.isFetching){
-        const cityItems = this.state.cities.map((city)=> <li key={city._id} className="citiesPage-list">{city.name + " " + city.country}</li>);
-        return <div><ul className="citiesPage-ul"> {cityItems} </ul></div>
-        //<li key={todo.id}>
-        //<AddCitiesList cities={cities} /> 
-        //<div> {this.state.cities[0].name + " " + this.state.cities[0].country}</div>
-        // <ComponenteCiuadad pros{name y citi} />
+    );
+    return (
+      <div>
+        <input type="text" placeholder="Search..."
+          value={this.state.search}
+          onChange={(e) => { this.updateSearch(e) }}
+        />
+        { filteredCities.map((city) => {
+            return (<ul className="citiesPage-ul">
+            {cityItem}
+          </ul>)}
+        )
       }
-
-    }
+      
+      </div>
+    );
+  }
 }
 
-export default CitiesList;
+CitiesList.propTypes = {
+  getCities: PropTypes.func.isRequired,
+  cities: PropTypes.array.isRequired
+}
+
+const mapStateToProps = (state) =>
+{
+  return ({
+  
+  cities: state.cities.cities
+})
+}
+ 
+export default connect(mapStateToProps, { getCities })(CitiesList);
+
+{/*class SearchBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      search: ''
+    };
+  }
+
+  updateSearch = e => {
+    console.log("e")
+    console.log(e.target)
+    this.setState({ search: e.target.value.substr(0, 20) })
+  }
+}*/
 
 
-//const numbers = [1, 2, 3, 4, 5];
-//ReactDOM.render(
-//  <NumberList numbers={numbers} />,
-//  document.getElementById('root')
-//);
+    /*let filteredCities = this.props.cities.filter(
+      (city) => {
+        return city.name.indexOf(this.state.search) !== -1;
+      }
+    );
+
+    if (!this.state.isFetching) {
+      const cityItems = this.props.cities.map((city) => <li key={city._id} className="citiesPage-list">{city.name + " " + city.country}</li>);
+      return <div><ul className="citiesPage-ul">{cityItems}</ul>
+        <input type="text"
+          value={this.state.search}
+          onChange={(e) => { this.updateSearch(e) }}
+    />
+      </div>
+    }*/}
