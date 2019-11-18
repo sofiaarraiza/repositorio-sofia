@@ -4,46 +4,41 @@ import { connect } from 'react-redux';
 import { getCities } from '../actions/getCities';
 
 class CitiesList extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        search: ''
-      };
-    }
-  
-    updateSearch = e => {
-      this.setState({ search: e.target.value.substr(0, 20) })
-    }
-  
   componentDidMount(){
     this.props.getCities();
   }
 
+  constructor(){
+    super();
+    this.state ={
+      search: ''
+    };
+  }
+
+  updateSearch(event){
+    this.setState({search: event.target.value.substring(0,20)})
+  }
+
   render() {
-    const cities = Array.from(this.props.cities || []);
+    const cities = Array.from(this.props.cities.filter(
+      (city) => {
+        return city.name.toUpperCase().indexOf(this.state.search.toUpperCase()) !== -1;
+      }
+    ) || []);
     const cityItem = cities.map(city => (
       <li key={city._id} className="citiesPage-list">
-        {city.name + " " + city.country}
+      {city.name + " "}{city.country}
       </li>
     ));
-    let filteredCities = this.props.cities.filter(
-      (city) => {
-        return city.name.indexOf(this.state.search) !== -1;
-      }
-    );
     return (
       <div>
-        <input type="text" placeholder="Search..."
-          value={this.state.search}
-          onChange={(e) => { this.updateSearch(e) }}
-        />
-        { filteredCities.map((city) => {
-            return (<ul className="citiesPage-ul">
+          <input type="text" 
+            value={this.state.search} placeholder="Search by city"
+            onChange={this.updateSearch.bind(this)}/>
+          <ul className="citiesPage-ul">
             {cityItem}
-          </ul>)}
-        )
-      }
-      
+          </ul>
+          
       </div>
     );
   }
