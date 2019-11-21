@@ -108,3 +108,19 @@ nav a:hover {
 .citiesPage-ul {
   list-style: none;
 }
+
+.citiesList-div {
+  width: 100%;
+  text-align: center;
+}
+
+.citiesPage-ul li {
+  display: inline-block;
+  margin: 10px;
+  height: auto;
+  width: auto;
+  background-color: #ff4945;
+  color: white;
+  border-radius: 30px;
+  padding: 20px;  
+}

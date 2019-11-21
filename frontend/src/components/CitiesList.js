@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCities } from '../actions/getCities';
+import { Link } from 'react-router-dom';
+
 
 class CitiesList extends Component {
   componentDidMount(){
@@ -22,21 +24,27 @@ class CitiesList extends Component {
   render() {
     const cities = Array.from(this.props.cities.filter(
       (city) => {
-        return city.name.toUpperCase().indexOf(this.state.search.toUpperCase()) !== -1;
+        return city.name.toUpperCase().indexOf(this.state.search.toUpperCase()) == 0;
       }
     ) || []);
     const cityItem = cities.map(city => (
-      <li key={city._id} className="citiesPage-list">
-      {city.name + " "}{city.country}
-      </li>
+
+      <Link to={`/mytinerary/:${city._id}`}>
+        <li key={city._id} className="citiesPage-list">
+        {city.name + " "}{city.country}
+        </li>
+      </Link>
     ));
     return (
-      <div>
+      <div className="citiesList-div">
           <input type="text" 
             value={this.state.search} placeholder="Search by city"
             onChange={this.updateSearch.bind(this)}/>
           <ul className="citiesPage-ul">
-            {cityItem}
+            
+
+          {cityItem}
+
           </ul>
           
       </div>

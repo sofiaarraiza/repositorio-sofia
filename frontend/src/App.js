@@ -23,7 +23,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/cities-page" component={CitiesPage} />
               <Route path="/log-in" component={LogIn} />
-              <Route path="/mytinerary" component={MYtinerary} />
+              <Route path="/mytinerary/:id" component={MYtinerary} />
               <Route path="/create-account" component={CreateAccount} />
             </Switch>
           </div>
