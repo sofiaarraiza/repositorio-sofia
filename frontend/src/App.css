@@ -11,6 +11,7 @@
 .home {
   background-image: url("./media/landing-page.jpg");
   background-size: cover;
+  width: auto;
   height: 900px;
 }
 
@@ -93,6 +94,7 @@ nav a {
 }
 
 .menu {
+  margin-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
   font-weight: 600;
@@ -109,18 +111,92 @@ nav a:hover {
   list-style: none;
 }
 
+.cities h2 {
+  font-size: 40px;
+}
+
 .citiesList-div {
   width: 100%;
   text-align: center;
 }
 
+.cityList-element {
+  text-align: center;
+  align-content: center;
+  position: relative;
+  margin: 10px;
+}
+
+.citiesList-div input {
+  font-size: 18px;
+  width: 200px;
+  height: 25px;;
+}
+
+.cityList-element:hover {
+  opacity: 0.7;
+  color: black;
+}
+
+.cityList-element h4 {
+  font-size: 30px;
+  text-align: center;
+  left: 25%;
+  top: 26%;
+  color: white;
+  position: absolute;
+}
+
 .citiesPage-ul li {
   display: inline-block;
-  margin: 10px;
   height: auto;
   width: auto;
-  background-color: #ff4945;
   color: white;
+}
+
+.citiesPage-image {
+  width: 350px;
+  height: 250px;
+  border-radius: 25px;
+}
+
+#inputSearchBar {
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid #008eff;
+}
+
+/*ITINERARY*/
+.itinerary-container {
+  display: inline-block;
+  font-family: Helvetica;
+  padding: 15px; 
+  background-color: #008eff;
+  width: 500px;
   border-radius: 30px;
-  padding: 20px;  
+}
+
+.itinerary-container h3 {
+  font-family: Mosk700;
+  font-size: 30px;
+  color: white;
+}
+
+.itinerary-profile {
+  width: 150px;
+  position: relative;
+  left: -150px;
+}
+
+/*ACTIVITIES*/
+.activity-container {
+  position: relative;
+  text-align: center;
+}
+
+.activity-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

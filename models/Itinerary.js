@@ -22,6 +22,9 @@ const itinerarySchema = new Schema({
     },
     city: {
         type: Schema.Types.ObjectId
+    },
+    activities: {
+        type: Array
     }
 });
 

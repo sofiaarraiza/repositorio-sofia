@@ -1,7 +1,7 @@
 import { GET_ITINERARIES } from '../actions/types';
 
 const initialState = {
-    cities: [],
+    itineraries: [],
 };
 
 export default function (state= initialState, action) {

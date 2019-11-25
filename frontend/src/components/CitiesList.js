@@ -6,47 +6,44 @@ import { Link } from 'react-router-dom';
 
 
 class CitiesList extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getCities();
   }
 
-  constructor(){
+  constructor() {
     super();
-    this.state ={
+    this.state = {
       search: ''
     };
   }
 
-  updateSearch(event){
-    this.setState({search: event.target.value.substring(0,20)})
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substring(0, 20) })
   }
 
   render() {
     const cities = Array.from(this.props.cities.filter(
       (city) => {
-        return city.name.toUpperCase().indexOf(this.state.search.toUpperCase()) == 0;
-      }
-    ) || []);
+        return city.name.toUpperCase().indexOf(this.state.search.toUpperCase()) === 0;
+      }) || []);
     const cityItem = cities.map(city => (
-
-      <Link to={`/mytinerary/:${city._id}`}>
-        <li key={city._id} className="citiesPage-list">
-        {city.name + " "}{city.country}
-        </li>
-      </Link>
+      <li key={city._id} className="citiesPage-list">
+        <div className="cityList-element">
+          <Link to={`/mytinerary/${city._id}`} key={city._id} style={{ textDecoration: 'none' }}>
+            <h4>{city.name + ", "}{city.country}</h4>
+            <img src={city.image} alt="City" className="citiesPage-image" />
+          </Link>
+        </div>
+      </li>
     ));
     return (
       <div className="citiesList-div">
-          <input type="text" 
-            value={this.state.search} placeholder="Search by city"
-            onChange={this.updateSearch.bind(this)}/>
-          <ul className="citiesPage-ul">
-            
-
+        <input type="text"
+          value={this.state.search} placeholder="Search by city"
+          onChange={this.updateSearch.bind(this)} id="inputSearchBar"/>
+        <ul className="citiesPage-ul">
           {cityItem}
-
-          </ul>
-          
+        </ul>
       </div>
     );
   }
@@ -57,44 +54,8 @@ CitiesList.propTypes = {
   cities: PropTypes.array.isRequired
 }
 
-const mapStateToProps = (state) =>
-{
-  return ({
-  
-  cities: state.cities.cities
-})
+const mapStateToProps = (state) => {
+  return ({ cities: state.cities.cities })
 }
- 
+
 export default connect(mapStateToProps, { getCities })(CitiesList);
-
-{/*class SearchBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      search: ''
-    };
-  }
-
-  updateSearch = e => {
-    console.log("e")
-    console.log(e.target)
-    this.setState({ search: e.target.value.substr(0, 20) })
-  }
-}*/
-
-
-    /*let filteredCities = this.props.cities.filter(
-      (city) => {
-        return city.name.indexOf(this.state.search) !== -1;
-      }
-    );
-
-    if (!this.state.isFetching) {
-      const cityItems = this.props.cities.map((city) => <li key={city._id} className="citiesPage-list">{city.name + " " + city.country}</li>);
-      return <div><ul className="citiesPage-ul">{cityItems}</ul>
-        <input type="text"
-          value={this.state.search}
-          onChange={(e) => { this.updateSearch(e) }}
-    />
-      </div>
-    }*/}

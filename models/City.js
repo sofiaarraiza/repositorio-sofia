@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var citySchema = new Schema({
     name: String,
     country: String,
+    image: String
   }
 );
 

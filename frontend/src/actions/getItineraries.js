@@ -1,10 +1,11 @@
 import { GET_ITINERARIES } from './types';
-const API = 'http://localhost:5000/cities';
+//const API = `http://localhost:5000/itinerary/${id}`;
+// const API = `http://localhost:5000/itinerary/123`;
 
-export function getItineraries() {
+export function getItineraries( id ) {
     return function (dispatch) {
      
-      return fetch(API)
+      return fetch(`http://localhost:5000/cities/${id}`)
       .then(
          response => response.json(),
          error => console.log('An error occurred.', error),

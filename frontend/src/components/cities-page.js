@@ -3,10 +3,11 @@ import CitiesList from './CitiesList';
 import Nav from './nav.js';
 import '../App.css';
 
-function citiesPage() {
+function CitiesPage() {
   return (
-    <div className="body">
+    <div className="body cities">
       <Nav />
+      <h2>Search Itineraries by City</h2>
       {/* header */}
       <CitiesList />
       {/* footer */}
@@ -14,4 +15,4 @@ function citiesPage() {
     </div>
 )}
 
-export default citiesPage;
+export default CitiesPage;

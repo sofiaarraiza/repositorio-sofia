@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
+import Activities from './Activities';
 
 class Itinerary extends Component {
-
+  render() {
+    const itinerary = this.props.itinerary
+    const hashtagsList = itinerary.hashtags.map(hashtag => (
+      <p>#{hashtag}</p>
+    ))
     return (
-      <div className="citiesList-div">
-          <input type="text" 
-            value={this.state.search} placeholder="Search by city"
-            onChange={this.updateSearch.bind(this)}/>
-          <ul className="citiesPage-ul">
-            
-
-          {cityItem}
-
-          </ul>
-          
-      </div>
+      <div key={itinerary._id} className="itinerary-container">
+        <h3>{itinerary.title}</h3>
+        <img src={itinerary.profile} alt="hello" className="itinerary-profile"/>
+        <p><b>{itinerary.rating}</b> Likes</p>
+        <p><b>{itinerary.hours}</b> Hours</p>
+        <p>$$ <b>{itinerary.price}</b></p>
+        <div>Hashtags: {hashtagsList}</div>
+        <Activities activities={itinerary.activities}/>
+       </div>
     );
   }
 }
 
-CitiesList.propTypes = {
-  getCities: PropTypes.func.isRequired,
-  cities: PropTypes.array.isRequired
-}
-
-const mapStateToProps = (state) =>
-{
-  return ({
-  
-  cities: state.cities.cities
-})
-}
- 
-export default connect(mapStateToProps, { getCities })(CitiesList);
+export default Itinerary;
