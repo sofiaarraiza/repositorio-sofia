@@ -45,9 +45,6 @@ const Home = () => (
         <a href="#" className="button-cities">START BROWSING</a>
       </Link>
     </div>
-    <footer>
-      <p class="col copy">Copyright © 2019 - Desarrollado por Sofía Arraiza</p>
-    </footer>
   </div>
 )
 

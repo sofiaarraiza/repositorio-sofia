@@ -1,14 +1,15 @@
 import React from 'react';
 import '../App.css';
 import Nav from './nav.js';
+import CreateAccountComp from './CreateAccountComp';
 
-function createAccount() {
+function createAccountPage() {
   return (
-    <div className="body">
+    <div className="body account">
       <Nav />
-      <h1>Create Account</h1>
-      <p>in construction.</p>
+      <h2>Create an Account</h2>
+      <CreateAccountComp />
     </div>
   )}
 
-export default createAccount;
+export default createAccountPage;

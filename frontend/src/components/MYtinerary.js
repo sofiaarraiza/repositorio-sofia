@@ -8,36 +8,35 @@ import Nav from './nav.js';
 
 const mapStateToProps = (state) => {
   return ({
-  itineraries: state.itineraries.itineraries
-})
+    itineraries: state.itineraries.itineraries
+  })
 }
 
 const mapDispatchToProps = (dispatch, getState) => {
-  console.log("getState.itineraries")
-  console.log(getState)
-  console.log(getState.match.params.id)
   return {
-   getItineraries: () => dispatch(getItineraries(getState.match.params.id))
+    getItineraries: () => dispatch(getItineraries(getState.match.params.id))
   };
 };
 
 class MYtinerary extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getItineraries();
   }
   render() {
     const itineraries = Array.from(this.props.itineraries || []);
     const itineraryList = itineraries.map(itinerary => (
       <li key={itinerary._id}>
-        <Itinerary itinerary={itinerary}/>
+        <Itinerary itinerary={itinerary} />
       </li>
     ))
-     return (
+    return (
       <div className="body">
         <Nav />
-        <ul className="itinerariesPage-ul">
+        <div className="itinerariesPageDiv">
+          <ul className="itinerariesPage-ul">
             {itineraryList}
-        </ul>
+          </ul>
+        </div>
       </div>
     )
   }
@@ -47,5 +46,5 @@ MYtinerary.propTypes = {
   getItineraries: PropTypes.func.isRequired,
   itineraries: PropTypes.array.isRequired
 }
- 
+
 export default connect(mapStateToProps, mapDispatchToProps)(MYtinerary);

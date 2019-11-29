@@ -106,12 +106,17 @@ nav a:hover {
   color: #ff4945;  
 }
 
+.nav-icons {
+  height: 80px;
+  font-weight: 100;
+}
+
 /*CITIES PAGE*/
 .citiesPage-ul {
   list-style: none;
 }
 
-.cities h2 {
+.cities h2, .account h2 {
   font-size: 40px;
 }
 
@@ -166,14 +171,26 @@ nav a:hover {
   border: 3px solid #008eff;
 }
 
+#inputSearchBar:hover {
+  border: 3px solid #ff4945;
+}
+
 /*ITINERARY*/
+
+.itinerariesPage-ul {
+  list-style: none;
+}
+
 .itinerary-container {
-  display: inline-block;
+  float: left;
   font-family: Helvetica;
   padding: 15px; 
   background-color: #008eff;
-  width: 500px;
+  width: 350px;
   border-radius: 30px;
+  list-style: none;
+  margin: 30px;
+  padding-bottom: 30px;;
 }
 
 .itinerary-container h3 {
@@ -183,20 +200,34 @@ nav a:hover {
 }
 
 .itinerary-profile {
-  width: 150px;
-  position: relative;
-  left: -150px;
+  width: 100px;
+}
+
+.itineraryImageDiv, .itineraryInformationDiv {
+  padding: 10px;
+  list-style: none;
+  display: inline;
+  float: left;
 }
 
 /*ACTIVITIES*/
 .activity-container {
+  display: inline-block;
   position: relative;
   text-align: center;
+  float: right;
 }
 
 .activity-title {
+  color: white;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.activity-image {
+  margin: 10px;;
+  width: 300px;
+  border-radius: 20px;;
 }

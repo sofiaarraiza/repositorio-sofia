@@ -10,13 +10,17 @@ class Itinerary extends Component {
     return (
       <div key={itinerary._id} className="itinerary-container">
         <h3>{itinerary.title}</h3>
-        <img src={itinerary.profile} alt="hello" className="itinerary-profile"/>
-        <p><b>{itinerary.rating}</b> Likes</p>
-        <p><b>{itinerary.hours}</b> Hours</p>
-        <p>$$ <b>{itinerary.price}</b></p>
+        <div className="itineraryImageDiv">
+          <img src={itinerary.profile} alt="hello" className="itinerary-profile" />
+        </div>
+        <div className="itineraryInformationDiv">
+          <p><b>{itinerary.rating}</b> Likes</p>
+          <p><b>{itinerary.hours}</b> Hours</p>
+          <p>$$ <b>{itinerary.price}</b></p>
+        </div>
         <div>Hashtags: {hashtagsList}</div>
-        <Activities activities={itinerary.activities}/>
-       </div>
+        <Activities activities={itinerary.activities} />
+      </div>
     );
   }
 }
