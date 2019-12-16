@@ -43,20 +43,24 @@
   text-decoration: none;
 }
 
-.button-cities {
-  position: relative;
-  display: inline-block;
+.button {
   font-family: Mosk400;
   font-weight: 600;
   color: white;
   background-color: #008eff;
   border-radius: 30px;
   padding: 20px;
+  border: none;
+}
+
+.button-cities {
+  position: relative;
+  display: inline-block;
   margin-top: 40px;
   margin-left: -200px;
 }
 
-.button-cities:hover {
+.button:hover {
   background-color: #ff4945;
   
 }
@@ -165,13 +169,14 @@ nav a:hover {
   border-radius: 25px;
 }
 
-#inputSearchBar {
+input[type=text], input[type=password] {
   padding: 5px;
+  margin: 10px;
   border-radius: 10px;
   border: 3px solid #008eff;
 }
 
-#inputSearchBar:hover {
+input[type=text]:hover {
   border: 3px solid #ff4945;
 }
 

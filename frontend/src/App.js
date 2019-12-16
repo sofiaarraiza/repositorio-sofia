@@ -42,7 +42,7 @@ const Home = () => (
       <p>designed by insiders</p>
       <p>who know and love their cities.</p>
       <Link to='/cities-page'>
-        <a href="#" className="button-cities">START BROWSING</a>
+        <a href="#" className="button button-cities">START BROWSING</a>
       </Link>
     </div>
   </div>

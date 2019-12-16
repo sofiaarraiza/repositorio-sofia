@@ -1,14 +1,15 @@
 import React from 'react';
 import '../App.css';
 import Nav from './nav.js';
+import LogInComp from './LogInComp';
 
-function logIn() {
+function LogIn() {
   return (
     <div className="body">
       <Nav />
       <h1>Log In MYtinerary</h1>
-      <p>in construction.</p>
+      <LogInComp />
     </div>
   )}
 
-export default logIn;
+export default LogIn;
