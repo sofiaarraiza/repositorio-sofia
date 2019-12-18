@@ -1,7 +1,7 @@
 import { LOG_USER } from './types';
 
 export const loginUser = userData => dispatch => {
-    fetch('http://localhost:5000/users/login', {
+    fetch('http://localhost:5000/login', {
         method: 'POST',
         body: JSON.stringify(userData),
         headers: {

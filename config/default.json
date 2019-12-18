@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://desaUser:asd123@cluster0-3yxfd.mongodb.net/cities?retryWrites=true&w=majority",
+    "jwtSecret": "myJwtSecret",
+    "GOOGLE_ID": "378375758701-2n3r3sdv4tc8n1hifmr508aar39d7j9m.apps.googleusercontent.com",
+    "GOOGLE_SECRET": "0ckKhplwzdhGAlvJ-TtS9vrK"
+}
