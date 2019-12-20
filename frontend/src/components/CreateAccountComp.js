@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createUser } from '../actions/createUser';
+import { loadUser } from '../actions/authActions';
 
 class CreateAccountComp extends Component {
     constructor() {
@@ -33,7 +33,7 @@ class CreateAccountComp extends Component {
             !(newUser.username === "" || newUser.pasword === "" || newUser.profile === "")
         ) {
             event.preventDefault();
-            this.props.createUser(newUser);
+            this.props.loadUser(newUser);
         } else {
             console.log("ERROR CAMPO VACÍO")
         }
@@ -58,7 +58,7 @@ class CreateAccountComp extends Component {
 
 
 CreateAccountComp.propTypes = {
-    createUSer: PropTypes.func.isRequired,
+    loadUser: PropTypes.func.isRequired,
     users: PropTypes.array.isRequired
 }
 
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
     return ({ users: state.users.users })
 }
 
-export default connect(mapStateToProps, { createUser })(CreateAccountComp);
+export default connect(mapStateToProps, { loadUser })(CreateAccountComp);

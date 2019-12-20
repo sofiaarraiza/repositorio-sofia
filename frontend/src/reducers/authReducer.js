@@ -6,7 +6,7 @@
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_ERROR
+    REGISTER_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -22,11 +22,35 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 isLoading: true
-            }
+            };
         case USER_LOADED:
             return {
-                ...state
+                ...state,
+                isAuthenticated: true,
+                isLoading: false,
+                user: action.payload
+            };
+        case LOGIN_SUCCESS:
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                ...action.payload,
+                isAuthenticated: true,
+                isLoading: false
+            };
+        case AUTH_ERROR:
+        case LOGIN_FAIL:
+        case LOGOUT_SUCCESS:
+        case REGISTER_FAIL:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token: null,
+                user: null,
+                isAuthenticated: false,
+                isLoading: false
             }
+        default:
+            return state;
     }
-}
-*/
+}*/

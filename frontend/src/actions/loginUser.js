@@ -11,7 +11,7 @@ export const loginUser = userData => dispatch => {
     })
         .then(res => res.json())
         .then(user => {console.log(user);return dispatch({
-            type: 'LOG_USER',
+            type: LOG_USER,
             payload: user
        })})
 }
