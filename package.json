@@ -35,7 +35,7 @@
     "reactstrap": "^8.1.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
-    "validator": "^12.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
